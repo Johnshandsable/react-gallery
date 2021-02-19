@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 
 // *********** IMPORT COMPONENTS ***************
+import GalleryList from '../GalleryList/GalleryList';
 import Header from '../Header/Header';
 
 function App() {
@@ -38,8 +39,7 @@ function App() {
     return (
       <div className="App"> 
         <Header />
-        <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <GalleryList />
       </div>
     );
 }
