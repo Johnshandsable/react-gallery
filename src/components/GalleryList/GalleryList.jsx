@@ -1,20 +1,19 @@
 import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList(
-  {galleryList,
-  galleryItemLikes, 
-  setGalleryItemLikes}) {
-    console.log('GalleryList() ');
-
+  {galleryList, 
+   updateData, 
+   deleteData}) {
     return (
             <div>
               <h2>Gallery List</h2>
               {galleryList.map(galleryItem => {
                 return (
                   <GalleryItem 
-                  galleryItem={galleryItem}
-                  galleryItemLikes={galleryItemLikes}
-                  setGalleryItemLikes={setGalleryItemLikes}/>  
+                    galleryItem={galleryItem}
+                    updateData={updateData}
+                    deleteData={deleteData}
+                  />  
                 ) // end inner return 
 
               })}

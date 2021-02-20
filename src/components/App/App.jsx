@@ -15,7 +15,6 @@ function App() {
 
   // *********** VARIABLES ***************
   const [galleryList, setGalleryList] = useState([]);
-  const [galleryItemLikes, setGalleryItemLikes] = useState(0);
 
 
   // *********** ROUTES ***************
@@ -28,7 +27,7 @@ function App() {
     })
     .then((response) => {
       console.log(' .then CLIENT - GET - got a response', response);
-      setGalleryList(response.data)
+      setGalleryList(response.data);
     })
     .catch((error) => {
       console.log('.catch CLIENT - GET - got an error', error);
@@ -44,6 +43,7 @@ function App() {
     })
     .then((response) => {
       console.log(' .then CLIENT - PUT - got a response', response);
+      getData();
     })
     .catch((error) => {
       console.log(' .catch CLIENT - PUT - got an error ', error);
@@ -59,6 +59,7 @@ function App() {
     })
     .then((response) => {
       console.log(' .then CLIENT - DELETE - got a response', response);
+      getData();
     })
     .catch((error) => {
       console.log(' .catch CLIENT - DELETE - got an error ', error);
@@ -70,8 +71,8 @@ function App() {
       <Header />
       <GalleryList 
         galleryList = {galleryList}
-        galleryItemLikes = {galleryItemLikes}
-        setGalleryItemLikes = {setGalleryItemLikes}
+        updateData = {updateData}
+        deleteData = {deleteData}
       />
     </div>
   ); // end return 

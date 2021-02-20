@@ -33,15 +33,20 @@ router.put('/like/:id', (req, res) => {
   console.log('req.params', req.params);
 
   // VARIABLES FOR QUERY
-  const galleryId = req.params.id;
+  const galleryItemId = req.params.id;
+  const sqlQuery = 'UPDATE "gallery_items" SET "likes" = "likes" + 1'
 
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
-}); // END PUT Route
+  pool.query(sqlText, [galleryItemId])
+      .then((result) => {
+          console.log('Updated an item from the "gallery_items"', result);
+          res.sendStatus(201); // UPDATE ITEM
+        })
+      .catch((error) => {
+          console.log(`Error making database query ${sqlQuery}`, error);
+          res.sendStatus(500); // SERVER ERROR
+        })
+}) // end PUT
+
 
 router.delete('/:id', (req, res) => {
   console.log('SERVER - DELETE inside /gallery/id');
