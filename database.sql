@@ -1,7 +1,8 @@
 CREATE TABLE "gallery_items" 
 ("id" SERIAL PRIMARY KEY, 
  "path" VARCHAR(1024) NOT NULL, 
- "description" VARCHAR(1024) NOT NULL, 
+ "description" VARCHAR(1024) NOT NULL,
+ "show_desc" BOOLEAN DEFAULT FALSE, 
  "likes" INT DEFAULT 0);
 
 INSERT INTO "gallery_items" 

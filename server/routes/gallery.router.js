@@ -10,21 +10,21 @@ const pool = require('../modules/pool.js');
 
 // GET Route
 router.get('/', (req, res) => {
-  console.log('SERVER - GET inside /gallery')
+  console.log('SERVER - GET inside /gallery');
 
   // VARIABLES FOR QUERY
-  const sqlQuery = 'SELECT * FROM "gallery_items"';
+  const sqlQuery = 'SELECT * FROM "gallery_items" ORDER BY "id" ASC';
 
-  pool.query(sqlQuery)
-    .then(results => {
+  pool
+    .query(sqlQuery)
+    .then((results) => {
       console.log('Retrieving results from "gallery_items"', results);
-      console.log('results.rows', results.rows)
       res.send(results.rows); // Send back DB Response
     })
     .catch((error) => {
       console.log(`Error making database query ${sqlQuery}`, error);
       res.sendStatus(500); // SERVER ERROR
-    })
+    });
 }); // END GET Route
 
 // PUT Route
@@ -34,19 +34,20 @@ router.put('/like/:id', (req, res) => {
 
   // VARIABLES FOR QUERY
   const galleryItemId = req.params.id;
-  const sqlQuery = 'UPDATE "gallery_items" SET "likes" = "likes" + 1'
+  const sqlQuery =
+    'UPDATE "gallery_items" SET "likes" = "likes" + 1 WHERE "id"=$1';
 
-  pool.query(sqlText, [galleryItemId])
-      .then((result) => {
-          console.log('Updated an item from the "gallery_items"', result);
-          res.sendStatus(201); // UPDATE ITEM
-        })
-      .catch((error) => {
-          console.log(`Error making database query ${sqlQuery}`, error);
-          res.sendStatus(500); // SERVER ERROR
-        })
-}) // end PUT
-
+  pool
+    .query(sqlQuery, [galleryItemId])
+    .then((result) => {
+      console.log('Updated an item from the "gallery_items"', result);
+      res.sendStatus(201); // UPDATE ITEM
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlQuery}`, error);
+      res.sendStatus(500); // SERVER ERROR
+    });
+}); // end PUT
 
 router.delete('/:id', (req, res) => {
   console.log('SERVER - DELETE inside /gallery/id');
@@ -56,15 +57,16 @@ router.delete('/:id', (req, res) => {
   const galleryItemId = req.params.id;
   const sqlQuery = 'DELETE FROM "gallery_items" WHERE "id"=$1';
 
-  pool.query(sqlQuery, [galleryItemId])
-    .then(results => {
+  pool
+    .query(sqlQuery, [galleryItemId])
+    .then((results) => {
       console.log('Deleting an item from "gallery_items"', results);
       res.sendStatus(200); // OK
     })
     .catch((error) => {
       console.log(`Error making database query ${sqlQuery}`, error);
       res.sendStatus(500); // SERVER ERROR
-    })
-})
+    });
+});
 
 module.exports = router;
