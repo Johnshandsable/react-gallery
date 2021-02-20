@@ -15,6 +15,7 @@ function App() {
 
   // *********** VARIABLES ***************
   const [galleryList, setGalleryList] = useState([]);
+  const [galleryItemLikes, setGalleryItemLikes] = useState(0);
 
 
   // *********** ROUTES ***************
@@ -40,7 +41,10 @@ function App() {
       <div className="App"> 
         <Header />
         <GalleryList 
-         galleryList = {galleryList}/>
+         galleryList = {galleryList}
+         galleryItemLikes = {galleryItemLikes}
+         setGalleryItemLikes = {setGalleryItemLikes}
+         />
       </div>
     );
 }
