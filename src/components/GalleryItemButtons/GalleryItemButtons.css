@@ -1,0 +1,12 @@
+.btn-likes {
+  background-color: chartreuse;
+  height: 30px;
+  width: 75px;
+}
+
+.btn-delete {
+  background-color: red;
+  height: 30px;
+  padding-left: 10px;
+  width: 75px;
+}

@@ -1,4 +1,4 @@
-import GalleryList from '../GalleryList/GalleryList';
+import './GalleryItemButtons.css';
 
 function GalleryItemButtons({ galleryItem, updateData, deleteData }) {
   return (
@@ -20,6 +20,15 @@ function GalleryItemButtons({ galleryItem, updateData, deleteData }) {
         }}
       >
         Love it!
+      </button>
+
+      <button
+        className="btn-delete"
+        onClick={() => {
+          deleteData(galleryItem.id);
+        }}
+      >
+        Delete Aminal
       </button>
     </div>
   ); // end return

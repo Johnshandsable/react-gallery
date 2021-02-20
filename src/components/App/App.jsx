@@ -15,6 +15,8 @@ function App() {
   // *********** VARIABLES ***************
   const [galleryList, setGalleryList] = useState([]);
 
+  // *********** FUNCTIONS ***************
+
   // *********** ROUTES ***************
   function getData() {
     /*
