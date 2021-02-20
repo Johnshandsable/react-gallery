@@ -33,7 +33,7 @@ function App() {
     .catch((error) => {
       console.log('.catch CLIENT - GET - got an error', error);
     })
-  }
+  } // end getData
 
   function updateData(galleryItemId) {
     /*
@@ -48,7 +48,7 @@ function App() {
     .catch((error) => {
       console.log(' .catch CLIENT - PUT - got an error ', error);
     })
-  }
+  } // end updateData
 
   function deleteData(galleryItemId) {
     /*
@@ -65,16 +65,16 @@ function App() {
     })
   } // end deleteData
 
-    return (
-      <div className="App"> 
-        <Header />
-        <GalleryList 
-         galleryList = {galleryList}
-         galleryItemLikes = {galleryItemLikes}
-         setGalleryItemLikes = {setGalleryItemLikes}
-         />
-      </div>
-    );
+  return (
+    <div className="App"> 
+      <Header />
+      <GalleryList 
+        galleryList = {galleryList}
+        galleryItemLikes = {galleryItemLikes}
+        setGalleryItemLikes = {setGalleryItemLikes}
+      />
+    </div>
+  ); // end return 
 }
 
 export default App;
