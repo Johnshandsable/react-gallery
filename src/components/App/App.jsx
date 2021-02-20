@@ -39,7 +39,8 @@ function App() {
     return (
       <div className="App"> 
         <Header />
-        <GalleryList />
+        <GalleryList 
+         galleryList = {galleryList}/>
       </div>
     );
 }
