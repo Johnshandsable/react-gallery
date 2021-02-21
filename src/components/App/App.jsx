@@ -110,6 +110,7 @@ function App() {
     <div className="App">
       <Header />
       <GalleryForm addData={addData} />
+
       <GalleryList
         galleryList={galleryList}
         updateData={updateData}

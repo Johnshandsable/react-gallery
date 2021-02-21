@@ -7,6 +7,9 @@ import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 
+// ICONS
+import AddIcon from '@material-ui/icons/Add';
+
 function GalleryForm({ addData }) {
   const [imagePath, setImagePath] = useState('');
   const [imageDescription, setImageDescription] = useState('');
