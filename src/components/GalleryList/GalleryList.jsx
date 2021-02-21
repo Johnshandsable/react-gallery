@@ -1,3 +1,4 @@
+import '@fontsource/roboto';
 import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList({ galleryList, updateData, deleteData, showDesc }) {
@@ -7,6 +8,7 @@ function GalleryList({ galleryList, updateData, deleteData, showDesc }) {
       {galleryList.map((galleryItem) => {
         return (
           <GalleryItem
+            key={galleryItem.id}
             galleryItem={galleryItem}
             updateData={updateData}
             deleteData={deleteData}
