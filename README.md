@@ -38,12 +38,12 @@ React Gallery is a full-stack application built over a weekend using React for t
 
 ## Built With
 
-[Express]  
-[Material-UI]  
-[Node.js]  
-[React]  
-[PostgreSQL]  
-[Uppy]
+1. Express
+2. Material-UI
+3. Node.js
+4. React
+5. PostgreSQL
+6. Uppy
 
 ## Acknowledgement
 
