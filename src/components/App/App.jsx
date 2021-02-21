@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import '@fontsource/roboto';
 import axios from 'axios';
 
 // *********** IMPORT COMPONENTS ***************
+import GalleryForm from '../GalleryForm/GalleryForm';
 import GalleryList from '../GalleryList/GalleryList';
 import Header from '../Header/Header';
 
@@ -34,6 +36,20 @@ function App() {
         console.log('.catch CLIENT - GET - got an error', error);
       });
   } // end getData
+
+  function addData(imagePath, imageDescription) {
+    axios
+      .post('/gallery', { imagePath, imageDescription }, (req, res) => {
+        console.log('CLIENT - POST inside addData() ');
+      })
+      .then((response) => {
+        console.log(' .then CLIENT - POST - got a response', response);
+        getData();
+      })
+      .catch((error) => {
+        console.log('.catch CLIENT - GET - got an error', error);
+      });
+  }
 
   function updateData(galleryItemId) {
     /*
@@ -93,6 +109,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <GalleryForm addData={addData} />
       <GalleryList
         galleryList={galleryList}
         updateData={updateData}

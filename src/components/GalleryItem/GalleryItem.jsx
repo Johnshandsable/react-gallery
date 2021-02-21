@@ -1,4 +1,5 @@
 import './GalleryItem.css';
+import '@fontsource/roboto';
 import GalleryItemButtons from '../GalleryItemButtons/GalleryItemButtons';
 
 function GalleryItem({ galleryItem, updateData, deleteData, showDesc }) {
