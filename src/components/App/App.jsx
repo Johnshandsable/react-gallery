@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import '@fontsource/roboto';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 // *********** IMPORT COMPONENTS ***************
 import GalleryForm from '../GalleryForm/GalleryForm';
@@ -92,18 +93,55 @@ function App() {
   function deleteData(galleryItemId) {
     /*
       DELETE ROUTE to /gallery/id
+
+      swal({
+    title: 'Are you sure?',
+    text: 'Once deleted, you will not be able to recover these tasks',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: `/tasks/delete/all`,
+        method: 'DELETE',
+      })
+        .then(function (response) {
+          console.log('CLIENT - DELETE - a response occurred', response);
+          swal('Poof! Your tasks have been deleted', {
+            icon: 'success',
+          });
+          getTasks();
+        })
+        .catch(function (error) {
+          console.log('CLIENT - DELETE - an error occurred', error);
+        });
+    } else {
+      swal('Your to-do-list is safe!');
+    }
+  });
     */
-    axios
-      .delete(`/gallery/${galleryItemId}`, (req, res) => {
-        console.log('CLIENT - DELETE inside deleteData() ');
-      })
-      .then((response) => {
-        console.log(' .then CLIENT - DELETE - got a response', response);
-        getData();
-      })
-      .catch((error) => {
-        console.log(' .catch CLIENT - DELETE - got an error ', error);
-      });
+    swal({
+      title: 'Are you sure?',
+      text: 'Once deleted, you will not be able to recover this image',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(`/gallery/${galleryItemId}`, (req, res) => {
+            console.log('CLIENT - DELETE inside deleteData() ');
+          })
+          .then((response) => {
+            console.log(' .then CLIENT - DELETE - got a response', response);
+            getData();
+          })
+          .catch((error) => {
+            console.log(' .catch CLIENT - DELETE - got an error ', error);
+          });
+      }
+    });
   } // end deleteData
 
   return (
