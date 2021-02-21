@@ -136,16 +136,14 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <GalleryForm addData={addData} />
+
       <GalleryList
         galleryList={galleryList}
         updateData={updateData}
         deleteData={deleteData}
         showDesc={showDesc}
       />
-      <GalleryForm addData={addData} />
-      <Container maxWidth="md">
-        <Typography variant="h4">Learn how to use Material UI</Typography>
-      </Container>
     </div>
   ); // end return
 }

@@ -14,8 +14,7 @@ function GalleryItem({ galleryItem, updateData, deleteData, showDesc }) {
   */
 
   return (
-    <div className="img-container">
-      <h2>Gallery Item</h2>
+    <div class="img-container">
       {galleryItem.show_desc ? (
         <img
           className="gallery-img"

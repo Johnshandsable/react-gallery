@@ -1,10 +1,12 @@
 import '@fontsource/roboto';
 import GalleryItem from '../GalleryItem/GalleryItem';
 
+// ********* MATERIAL UI COMPONENTS *************
+import Container from '@material-ui/core/Container';
+
 function GalleryList({ galleryList, updateData, deleteData, showDesc }) {
   return (
-    <div>
-      <h2>Gallery List</h2>
+    <Container maxWidth="lg">
       {galleryList.map((galleryItem) => {
         return (
           <GalleryItem
@@ -16,7 +18,7 @@ function GalleryList({ galleryList, updateData, deleteData, showDesc }) {
           />
         ); // end inner return
       })}
-    </div>
+    </Container>
   ); // end return
 } // end GalleryList
 
