@@ -1,37 +1,61 @@
+// STYLES
 import './GalleryItemButtons.css';
+import '@fontsource/roboto';
+
+// ********* MATERIAL UI COMPONENTS *************
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Typography from '@material-ui/core/Typography';
+
+// ICONS
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 
 function GalleryItemButtons({ galleryItem, updateData, deleteData }) {
   return (
-    <div>
-      <h4>
+    <Container maxWidth="sm">
+      <Typography variant="h5">
         {galleryItem.likes > 0 ? (
-          <span>Love this!</span>
+          <Box color="text.primary" component="span" m={1}>
+            {' '}
+            Love this!{' '}
+          </Box>
         ) : (
-          <span>Nobody likes this yet. :(</span>
+          <Box color="text.primary" component="span" m={1}>
+            {' '}
+            Nobody likes this yet. :({' '}
+          </Box>
         )}
-      </h4>
+      </Typography>
 
-      <p>Likes: {galleryItem.likes}</p>
+      <Typography variant="subtitle1">Likes: {galleryItem.likes}</Typography>
+      <ButtonGroup>
+        <Button
+          variant="contained"
+          color="primary"
+          endIcon={<ThumbUpAltIcon />}
+          onClick={() => {
+            updateData(galleryItem.id);
+          }}
+        >
+          Like
+        </Button>
 
-      <button
-        className="btn-likes"
-        onClick={() => {
-          updateData(galleryItem.id);
-        }}
-      >
-        Love it!
-      </button>
-
-      <button
-        className="btn-delete"
-        onClick={() => {
-          deleteData(galleryItem.id);
-        }}
-      >
-        Delete Aminal
-      </button>
-    </div>
-  ); // end return
-} // end GalleryItemButtons
+        <Button
+          variant="contained"
+          color="secondary"
+          endIcon={<DeleteForeverIcon />}
+          onClick={() => {
+            deleteData(galleryItem.id);
+          }}
+        >
+          Delete
+        </Button>
+      </ButtonGroup>
+    </Container>
+  );
+}
 
 export default GalleryItemButtons;

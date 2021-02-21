@@ -27,6 +27,25 @@ router.get('/', (req, res) => {
     });
 }); // END GET Route
 
+// POST Route
+router.post('/', (req, res) => {
+  console.log('SERVER - POST inside /gallery');
+
+  // VARIABLES FOR QUERY
+  const sqlQuery = 'INSERT INTO "gallery_items" ()ORDER BY "id" ASC';
+
+  pool
+    .query(sqlQuery)
+    .then((results) => {
+      console.log('Adding new item into "gallery_items"', results);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlQuery}`, error);
+      res.sendStatus(500); // SERVER ERROR
+    });
+}); // END POST Route
+
 // PUT Route
 router.put('/like/:id', (req, res) => {
   console.log('SERVER - PUT inside /gallery/like/id');
