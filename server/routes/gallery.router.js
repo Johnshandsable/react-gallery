@@ -31,12 +31,15 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   console.log('SERVER - POST inside /gallery');
 
+  const imagePath = req.body.imagePath;
+  const imageDescription = req.body.imageDescription;
   // VARIABLES FOR QUERY
-  const sqlQuery = 'INSERT INTO "gallery_items" ()ORDER BY "id" ASC';
+  const sqlQuery =
+    'INSERT INTO "gallery_items" ("path", "description") VALUES ($1, $2)';
 
   pool
     .query(sqlQuery)
-    .then((results) => {
+    .then((results, [imagePath, imageDescription]) => {
       console.log('Adding new item into "gallery_items"', results);
       res.sendStatus(200);
     })

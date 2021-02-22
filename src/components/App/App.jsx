@@ -92,34 +92,7 @@ function App() {
 
   function deleteData(galleryItemId) {
     /*
-      DELETE ROUTE to /gallery/id
-
-      swal({
-    title: 'Are you sure?',
-    text: 'Once deleted, you will not be able to recover these tasks',
-    icon: 'warning',
-    buttons: true,
-    dangerMode: true,
-  }).then((willDelete) => {
-    if (willDelete) {
-      $.ajax({
-        url: `/tasks/delete/all`,
-        method: 'DELETE',
-      })
-        .then(function (response) {
-          console.log('CLIENT - DELETE - a response occurred', response);
-          swal('Poof! Your tasks have been deleted', {
-            icon: 'success',
-          });
-          getTasks();
-        })
-        .catch(function (error) {
-          console.log('CLIENT - DELETE - an error occurred', error);
-        });
-    } else {
-      swal('Your to-do-list is safe!');
-    }
-  });
+      DELETE ROUTE to /gallery
     */
     swal({
       title: 'Are you sure?',
