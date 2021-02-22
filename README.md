@@ -1,7 +1,5 @@
 # React Gallery
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
 ## Description
 
 React Gallery is a full-stack application built over a weekend using React for the frontend, Node/Express for the backend, and PostgreSQL for the database. The project simulates an art gallery where the user can like new art pieces, delete them, and new ones.
